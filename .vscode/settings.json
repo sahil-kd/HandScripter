@@ -1,0 +1,12 @@
+{
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.black-formatter"
+	},
+	"editor.formatOnSave": true
+}
+/*
+	- Please note that the formatter will not save on format if error squiggles are unresolved,
+		on resolving them it will format on save as expected.
+
+	- Black formatter doesn’t reformat lines that end with # fmt: skip
+*/
