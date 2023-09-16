@@ -66,7 +66,7 @@ model.add(tf.keras.layers.Dense(10, activation="softmax"))
 
 # Now we gotta compile the model into binary for computer to actually understand and execute it
 model.compile(
-    optimizer="adam", loss="sparce_categorical_crossentropy", metrics=["accuracy"]
+    optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
 )
 
 # Now we need to train the model
@@ -74,4 +74,4 @@ model.compile(
 model.fit(x_train, y_train, epochs=3)
 
 # After training the model we need to save it
-model.save("handwritten.model")
+model.save("models/handwritten.model")
