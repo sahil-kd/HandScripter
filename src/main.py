@@ -38,9 +38,6 @@ mnist = tf.keras.datasets.mnist
 x_train = tf.keras.utils.normalize(x_train, axis=1)
 x_test = tf.keras.utils.normalize(x_test, axis=1)
 
-# Now the pre-processing part is over, now we will build the model and train it
-model = tf.keras.models.Sequential()  # Just a basic sequential neural network
-
 """
 Also take a look at from the README.md file:
     1) Activation functions
@@ -49,6 +46,10 @@ Also take a look at from the README.md file:
     4) Layer types
 
 """
+
+"""
+# Now the pre-processing part is over, now we will build the model and train it
+model = tf.keras.models.Sequential()  # Just a basic sequential neural network
 
 # Now we add each layer to our model using model.add(layerType) function
 # A flatten layer takes a p x q matrix and flattens it out into a list/array of p x q elements | Input layer
@@ -74,4 +75,26 @@ model.compile(
 model.fit(x_train, y_train, epochs=3)
 
 # After training the model we need to save it
-model.save("models/handwritten.model")
+model.save("./models/handwritten.model")
+
+"""
+
+ready_model = tf.keras.models.load_model("./models/handwritten.model")
+
+# loss, accuracy = ready_model.evaluate(x_test, y_test)
+
+# print(f"Loss = {loss}")  # 0.1% loss found
+# print(f"Accuracy = {accuracy}")  # 97% accuracy found
+
+image_number = 1
+
+while os.path.isfile(f"test/digit{image_number}.png"):
+    try:
+        img = cv.imread(f"test/digit{image_number}.png")[:, :, 0]
+        img = np.invert(np.array([img]))
+        prediction = ready_model.predict(img)
+        print(f"Digit {image_number} is probably a {np.argmax(prediction)}")
+    except:
+        print("Some error occured")
+    finally:
+        image_number += 1

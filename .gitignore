@@ -1,2 +1,4 @@
 *.model
 models/
+node_modules/
+.env
