@@ -1,5 +1,15 @@
 # Notes
 
+## "npm run dev" to start vite server and press "o" to open in browser, and "q" to stop the server
+
+**Vite server shortcuts: (hot reloading enabled by default)**
+
+- press r to restart the server
+- press u to show server url
+- press o to open in browser
+- press c to clear console
+- press q to quit
+
 **This is just a temp side docs that will be later merged with README.md file, with chapters, etc**
 
 An web app for scanning handwritting and convert them to docx or pdf, or do math problems for you
