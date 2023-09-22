@@ -1,0 +1,16 @@
+footer {
+    background-color: #333; /* Background color for the footer */
+    color: #fff; /* Text color for the footer */
+    padding: 10px 0; /* Vertical and horizontal padding */
+    text-align: center; /* Center-align the text */
+    position: absolute; /* Fixed position at the bottom of the viewport */
+    width: 100%;
+    left: 0;
+    bottom: 0; /* Stick it to the bottom */
+    right: 0;
+}
+
+footer p {
+    margin: 0; /* Remove default margin */
+    font-size: 14px;
+}

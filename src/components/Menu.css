@@ -1,0 +1,56 @@
+button.main-menu {
+  left: 0;
+  top: 5rem;
+  margin-left: 1rem;
+  margin-bottom: 5rem;
+  position: absolute;
+  /* border: 0.125rem solid whitesmoke; */
+}
+
+button.main-menu:hover {
+  border: 0.125rem solid whitesmoke;
+  box-shadow: 0 0 0.4rem whitesmoke;
+}
+
+nav.menu-container {
+  background-color: #333;
+  width: 15rem;
+  left: 0;
+  margin-left: 1rem;
+  position: absolute;
+  /* text-align: center; */
+  border: 0.125rem solid whitesmoke;
+  box-shadow: 0 0 0.625rem whitesmoke;
+  display: block;
+}
+
+ul.menu {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 1rem;
+  /* display: inline-block; Making the <ul> inline-block to center it */
+}
+
+li.menu-item {
+  text-align: left;
+  font-size: x-large;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition:
+    transform 0.2s ease,
+    margin-left 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+li.menu-item:hover {
+  /* transform: scale(1.2) translateX(0.9rem); */
+  transform: scale(1.1) translateX(0.5rem);
+  font-weight: 600;
+  /* filter: drop-shadow(0 0 2rem whitesmoke); */
+  /* box-shadow: 0 0 10px whitesmoke; */
+}
+
+li.menu-item:last-child:hover {
+  transform: scale(1.05) translateX(-0.25rem);
+}

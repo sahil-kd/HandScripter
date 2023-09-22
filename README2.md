@@ -1,18 +1,26 @@
 # Notes
 
+## A web app for scanning handwritting and convert them to docx or pdf, or do math problems for you
+
 ## "npm run dev" to start vite server and press "o" to open in browser, and "q" to stop the server
 
 **Vite server shortcuts: (hot reloading enabled by default)**
 
-- press r to restart the server
-- press u to show server url
-- press o to open in browser
-- press c to clear console
-- press q to quit
+    - press r to restart the server
+    - press u to show server url
+    - press o to open in browser
+    - press c to clear console
+    - press q to quit
 
 **This is just a temp side docs that will be later merged with README.md file, with chapters, etc**
 
-An web app for scanning handwritting and convert them to docx or pdf, or do math problems for you
+**When working with Vite, which is a build tool for web applications, you don't need react-scripts or web-vitals. These are specific for Create React App (CRA) projects.**
+
+**Black Formatter for Python:**
+
+    - Please note that the formatter will not save on format if error squiggles are unresolved, on resolving them it will format on save as expected.
+
+    - Black formatter doesn’t reformat lines that end with # fmt: skip
 
 ## Assets folder
 
