@@ -12,7 +12,7 @@ export default function Header() {
           if (titleElement.current) {
             setTimeout(() => {
               if (titleElement.current) {
-                titleElement.current.style.fontStyle = "italic";
+                // titleElement.current.style.fontStyle = "italic";
               }
             }, 2000);
           }
@@ -21,7 +21,7 @@ export default function Header() {
         //   if (titleElement.current) titleElement.current.style.color = "white";
         // }}
       >
-        HandScripter
+        handScripter
       </h1>
     </>
   );
