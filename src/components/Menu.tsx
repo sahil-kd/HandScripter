@@ -1,5 +1,5 @@
 import "./Menu.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import MenuIcon from "@mui/icons-material/MenuRounded";
 import MenuIcon2 from "@mui/icons-material/MenuOpenRounded";
 import HomeIcon from "@mui/icons-material/Home";
@@ -15,20 +15,38 @@ import ContractIcon from "@mui/icons-material/Pages";
 
 export default function Menu() {
   const [isCollapsed, setisCollapsed] = useState(true);
-  const toogleCollapse = (e: { currentTarget: any }) => {
-    console.log(e.currentTarget.style); // massive object exported for styling
-    setisCollapsed(!isCollapsed);
-  };
+  const isMouseInMenuContainer = useRef(false);
   return (
     <>
       <button
         className="main-menu"
-        onClick={toogleCollapse}
+        onMouseEnter={() => {
+          setisCollapsed(false);
+        }}
+        onMouseLeave={() => {
+          setTimeout(() => {
+            if (isCollapsed === false && isMouseInMenuContainer.current === false) setisCollapsed(true);
+          }, 125);
+        }}
         style={isCollapsed ? {} : { border: "0.125rem solid whitesmoke", boxShadow: "0 0 0.4rem whitesmoke" }}
       >
         {isCollapsed ? <MenuIcon fontSize="medium" /> : <MenuIcon2 fontSize="medium" />}
       </button>
-      <nav className="menu-container" style={{ display: isCollapsed ? "none" : "block" }}>
+      <nav
+        className="menu-container"
+        onMouseEnter={() => {
+          isMouseInMenuContainer.current = true;
+        }}
+        onMouseLeave={() => {
+          setisCollapsed(true);
+          isMouseInMenuContainer.current = false;
+        }}
+        style={
+          isCollapsed
+            ? { opacity: 0, pointerEvents: "none" }
+            : { opacity: 1, transform: "translateY(0)", pointerEvents: "auto" }
+        }
+      >
         <ul className="menu">
           <li className="menu-item">
             <HomeIcon fontSize="large" />

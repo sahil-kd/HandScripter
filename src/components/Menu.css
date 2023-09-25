@@ -16,12 +16,17 @@ nav.menu-container {
   background-color: #333;
   width: 15rem;
   left: 0;
+  top: 9rem;
   margin-left: 1rem;
   position: absolute;
   /* text-align: center; */
   border: 0.125rem solid whitesmoke;
   box-shadow: 0 0 0.625rem whitesmoke;
-  display: block;
+  opacity: 0;
+  transform: translateY(-1.0625rem); /* 17px ÷ 16px = 1.0625rem */
+  transition:
+    opacity 375ms ease-in-out,
+    transform 275ms ease-in-out;
 }
 
 ul.menu {
