@@ -1,4 +1,5 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Menu from "./components/Menu";
@@ -11,7 +12,9 @@ function App() {
     <>
       <Header />
       <Menu />
-      <Uploader />
+      <Routes>
+        <Route path="/" element={<Uploader />}></Route>
+      </Routes>
       <Footer />
     </>
   );

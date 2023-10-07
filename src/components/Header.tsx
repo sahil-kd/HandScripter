@@ -21,7 +21,7 @@ export default function Header() {
         //   if (titleElement.current) titleElement.current.style.color = "white";
         // }}
       >
-        handScripter
+        Handscripter
       </h1>
     </>
   );

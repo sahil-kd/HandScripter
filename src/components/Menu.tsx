@@ -1,5 +1,6 @@
 import "./Menu.css";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/MenuRounded";
 import MenuIcon2 from "@mui/icons-material/MenuOpenRounded";
 import HomeIcon from "@mui/icons-material/Home";
@@ -16,6 +17,10 @@ import ContractIcon from "@mui/icons-material/Pages";
 export default function Menu() {
   const [isCollapsed, setisCollapsed] = useState(true);
   const isMouseInMenuContainer = useRef(false);
+  const linkStyle = {
+    textDecoration: "none", // Disable underline
+    color: "inherit",
+  };
   return (
     <>
       <button
@@ -47,47 +52,49 @@ export default function Menu() {
             : { opacity: 1, transform: "translateY(0)", pointerEvents: "auto" }
         }
       >
+        {/* I used <Link> components instead of <li> tags due to CSS style conflicts between the two,
+        and does not negatively impact SEO */}
         <ul className="menu">
-          <li className="menu-item">
+          <Link to="/" style={linkStyle} className="menu-item">
             <HomeIcon fontSize="large" />
             &nbsp;Home
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/About" style={linkStyle} className="menu-item">
             <InfoIcon fontSize="large" />
             &nbsp;About
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/Contact" style={linkStyle} className="menu-item">
             <EmailIcon fontSize="large" />
             &nbsp;Contact
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/Services" style={linkStyle} className="menu-item">
             <ServicesIcon fontSize="large" />
             &nbsp;Services
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/Settings" style={linkStyle} className="menu-item">
             <SettingsIcon fontSize="large" />
             &nbsp;Settings
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/FAQs" style={linkStyle} className="menu-item">
             <LightbulbIcon fontSize="large" />
             &nbsp;FAQs
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/How-it-works" style={linkStyle} className="menu-item">
             <PlayIcon fontSize="large" />
             &nbsp;How it works
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/Report-issues" style={linkStyle} className="menu-item">
             <BugIcon fontSize="large" />
             &nbsp;Report Issues
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/Privacy-policy" style={linkStyle} className="menu-item">
             <LockIcon fontSize="large" />
             &nbsp;Privacy Policy
-          </li>
-          <li className="menu-item">
+          </Link>
+          <Link to="/Terms-of-service" style={linkStyle} className="menu-item">
             <ContractIcon fontSize="large" />
             &nbsp;Terms of Service
-          </li>
+          </Link>
         </ul>
       </nav>
     </>

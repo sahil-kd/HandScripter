@@ -36,7 +36,7 @@ ul.menu {
   /* display: inline-block; Making the <ul> inline-block to center it */
 }
 
-li.menu-item {
+.menu-item {
   text-align: left;
   font-size: x-large;
   cursor: pointer;
@@ -48,7 +48,7 @@ li.menu-item {
   align-items: center;
 }
 
-li.menu-item:hover {
+.menu-item:hover {
   /* transform: scale(1.2) translateX(0.9rem); */
   transform: scale(1.1) translateX(0.5rem);
   font-weight: 600;
@@ -56,6 +56,6 @@ li.menu-item:hover {
   /* box-shadow: 0 0 10px whitesmoke; */
 }
 
-li.menu-item:last-child:hover {
+.menu-item:last-child:hover {
   transform: scale(1.05) translateX(-0.25rem);
 }
