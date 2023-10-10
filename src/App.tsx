@@ -14,7 +14,7 @@ import ReportIssues from "./components/ReportIssues";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfService from "./components/TermsOfService";
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
@@ -35,5 +35,3 @@ function App() {
     </>
   );
 }
-
-export default App;

@@ -7,22 +7,20 @@ div.uploader {
   width: 37.5rem;
   height: 12.5rem;
   font-size: x-large;
+  cursor: pointer;
+  text-align: center;
   /* background-color: #333; */
   left: 29rem;
   top: 17rem;
 }
 
 div.uploader:hover {
-  box-shadow: 0 0 0.4rem whitesmoke;
-}
-
-button.upload-button {
-  border: 0.125rem solid whitesmoke;
-  margin-left: 0.75rem;
-  /* background-color: #333; */
-}
-
-button.upload-button:hover {
-  border: 0.125rem solid whitesmoke;
-  box-shadow: 0 0 0.4rem whitesmoke;
+  box-shadow: 0 0 0.4rem pink;
+  transform: scale(1.01);
+  /* text-shadow: #fc0 1px 0 10px; */
+  text-shadow: 1px 1px 2px pink;
+  transition:
+    box-shadow 500ms ease,
+    transform 500ms ease,
+    text-shadow 500ms ease;
 }
