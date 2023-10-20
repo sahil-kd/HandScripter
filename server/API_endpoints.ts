@@ -6,6 +6,6 @@ import axios from "axios";
 - This file is typescript file else can't import it to vite-ts
 */
 
-export default axios.create({
-  baseURL: "http://localhost:5000",
+export const uploadToServer = axios.create({
+  baseURL: "http://localhost:5000/uploader",
 });

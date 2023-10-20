@@ -17,7 +17,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename); // absolute path points to server folder
 
 app.use(cors()); // using cors middleware to enable CORS on all routes
-app.use(express.json()); // added middleware to enable JSON parsing
+app.use(express.json({ limit: "5000kb" })); // added middleware to enable JSON parsing, and increasing body-parser limit to 5MB
 
 // app.use(express.static(join(__dirname))); // setting server folder as static folder
 
@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
   res.sendFile(join(__dirname, "../public/pen_icon.svg"));
 });
 
-app.post("/", (req, res) => {
+app.post("/uploader", (req, res) => {
   console.log(req.body);
-  res.send(`POST received with data: ${req.body.svgData}`);
+  res.send(`POST received with data: ${req.body.imageData.coreData}`);
 });
