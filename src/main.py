@@ -17,6 +17,8 @@ Install/update python, then install the following python libs:
     To run this file, cd to Handwritting_recognizer then run: python src/main.py
 """
 
+"""
+
 # First we will load the dataset directly from tf module instead of downloading csv files and pre-processing them
 
 mnist = tf.keras.datasets.mnist
@@ -27,7 +29,7 @@ mnist = tf.keras.datasets.mnist
 # x-data refers to the actual image as a flattened matric of pixels (it's just the pixel data)
 # y-data refers to the labelled digit i.e. what digit the image actually is
 
-# this function returns two tuples (destructuring) | Black formatter doesn’t reformat lines that end with # fmt: skip
+# this function returns two tuples (destructuring) | Black formatter doesnt reformat lines that end with # fmt: skip
 (x_train, y_train), (x_test, y_test) = mnist.load_data()  # fmt:skip
 
 # Now we will normalize it meaning scale it down between 0 and 1, e.g. grayscale intensity value is between 0 to 255
@@ -39,6 +41,8 @@ x_train = tf.keras.utils.normalize(x_train, axis=1)
 x_test = tf.keras.utils.normalize(x_test, axis=1)
 
 """
+
+"""
 Also take a look at from the README.md file:
     1) Activation functions
     2) Optimizers
@@ -48,6 +52,7 @@ Also take a look at from the README.md file:
 """
 
 """
+
 # Now the pre-processing part is over, now we will build the model and train it
 model = tf.keras.models.Sequential()  # Just a basic sequential neural network
 
@@ -71,30 +76,32 @@ model.compile(
 )
 
 # Now we need to train the model
-# epochs is how many times is the model going to see the same data all over again
-model.fit(x_train, y_train, epochs=3)
+# epochs is how many times is the model going to see the same data all over again, standard 10-20 epochs
+# 10 epochs gives 99.5% accuracy and beyond that starts to slightly overfit due to diminishing returns
+model.fit(x_train, y_train, epochs=10)
 
 # After training the model we need to save it
 model.save("./models/handwritten.model")
 
 """
 
-ready_model = tf.keras.models.load_model("./models/handwritten.model")
 
-# loss, accuracy = ready_model.evaluate(x_test, y_test)
+# ready_model = tf.keras.models.load_model("./models/handwritten.model")
 
-# print(f"Loss = {loss}")  # 0.1% loss found
-# print(f"Accuracy = {accuracy}")  # 97% accuracy found
+# # loss, accuracy = ready_model.evaluate(x_test, y_test)
 
-image_number = 1
+# # print(f"Loss = {loss}")  # 0.1% loss found
+# # print(f"Accuracy = {accuracy}")  # 97% accuracy found
 
-while os.path.isfile(f"test/digit{image_number}.png"):
-    try:
-        img = cv.imread(f"test/digit{image_number}.png")[:, :, 0]
-        img = np.invert(np.array([img]))
-        prediction = ready_model.predict(img)
-        print(f"Digit {image_number} is probably a {np.argmax(prediction)}")
-    except:
-        print("Some error occured")
-    finally:
-        image_number += 1
+# image_number = 1
+
+# while os.path.isfile(f"test/digit{image_number}.png"):
+#     try:
+#         img = cv.imread(f"test/digit{image_number}.png")[:, :, 0]
+#         img = np.invert(np.array([img]))
+#         prediction = ready_model.predict(img)
+#         print(f"Digit {image_number} is probably a {np.argmax(prediction)}")
+#     except:
+#         print("Some error occured")
+#     finally:
+#         image_number += 1
